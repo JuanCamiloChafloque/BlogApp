@@ -1,5 +1,12 @@
 # BlogApp
 
+A small NodeJS backend up that allows users to sign-in with their google account and create and see posts they have created.
+
+- Use of Redis for caching
+- Implemented several tests with the Jest library
+- Implemented CI/CD
+- Implemented file upload/storage using AWS S3
+
 ### Setup
 
 - Run `npm install` in the root of the project to install server dependencies
