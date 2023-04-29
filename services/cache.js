@@ -3,7 +3,7 @@ const keys = require("../config/keys");
 const mongoose = require("mongoose");
 
 const exec = mongoose.Query.prototype.exec;
-const client = redis.createClient({ url: keys.redisURI });
+const client = redis.createClient({ url: keys.redisUrl });
 client.on("error", (err) => console.log("Redis Client Error", err));
 client.connect();
 
