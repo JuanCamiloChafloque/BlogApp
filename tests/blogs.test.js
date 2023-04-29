@@ -18,7 +18,7 @@ describe("When logged-in", async () => {
   });
 
   test("can see blog create form", async () => {
-    test.setTimeout(120000);
+    jest.setTimeout(120000);
     const label = await page.getContentsOf("form label");
     expect(label).toBe("Blog Title");
   });
@@ -31,13 +31,13 @@ describe("When logged-in", async () => {
     });
 
     test("Submitting takes user to review screen", async () => {
-      test.setTimeout(120000);
+      jest.setTimeout(120000);
       const text = await page.getContentsOf("h5");
       expect(text).toEqual("Please confirm your entries");
     });
 
     test("Submitting then saving adds blog to index page", async () => {
-      test.setTimeout(120000);
+      jest.setTimeout(120000);
       await page.click("button.green");
       await page.waitFor(".card");
       const title = await page.getContentsOf(".card-title");
@@ -53,7 +53,7 @@ describe("When logged-in", async () => {
     });
 
     test("the form shows an error message", async () => {
-      test.setTimeout(120000);
+      jest.setTimeout(120000);
       const titleError = await page.getContentsOf(".title .red-text");
       const contentError = await page.getContentsOf(".content .red-text");
       expect(titleError).toEqual("You must provide a value");
@@ -64,7 +64,7 @@ describe("When logged-in", async () => {
 
 describe("When not logged-in", async () => {
   test("User cannot create blog posts", async () => {
-    test.setTimeout(120000);
+    jest.setTimeout(120000);
     const result = await page.evaluate(() => {
       return fetch("/api/blogs", {
         method: "POST",
@@ -80,7 +80,7 @@ describe("When not logged-in", async () => {
   });
 
   test("User cannot get a list of posts", async () => {
-    test.setTimeout(120000);
+    jest.setTimeout(120000);
     const result = await page.evaluate(() => {
       return fetch("/api/blogs", {
         method: "GET",
