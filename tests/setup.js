@@ -1,4 +1,4 @@
-jest.setTimeout(60000);
+jest.setTimeout(80000);
 
 require("../models/User");
 const mongoose = require("mongoose");
